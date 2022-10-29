@@ -1,18 +1,18 @@
-const mongoose = require('mongoose');
+const { Schema, model } = require('mongoose');
 
 // TODO: Define a new schema named `thoughtSchema` for the subdocument
-const thoughtSchema = new mongoose.Schema({
-    thoughtText: ,
-    createdAt: ,
-    username: ,
-    reactions: reactionSchema,
+const thoughtSchema = new Schema({
+    thoughtText: { type: String, require: true, minLength: 1, maxLength: 280 },
+    createdAt: { type: Date, default: Date.now },
+    username: { type: String, required: true },
+    reactions: [reactionSchema],
 });
 
-const reactionSchema = new mongoose.Schema({
-    reactionId: ,
-    reactionBody: ,
-    username: ,
-    createdAt: ,
+const reactionSchema = new Schema({
+    reactionId: { type: Schema.Types.ObjectId, default: new ObjectId },
+    reactionBody: { type: String, required: true, maxLength: 280 },
+    username: { type: String, required: true },
+    createdAt: { type: Date, default: Date.now },
 })
 
 
