@@ -15,9 +15,13 @@ const reactionSchema = new Schema({
     createdAt: { type: Date, default: Date.now },
 })
 
+thoughtSchema.virtual('reactionCount').get(function() {
+    return this.reactions.length;
+});
 
-// TODO: Create a model named `Library`
-const Thought = mongoose.model('Thought', thoughtSchema);
+
+// TODO: Create a model named `Thought`
+const Thought = model('Thought', thoughtSchema);
 
 // TODO: Create a new instance of the model including the subdocuments
 

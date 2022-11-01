@@ -1,5 +1,5 @@
+const isEmail = require('validator/lib/isEmail');
 const { Schema, model } = require('mongoose');
-import isEmail from 'validator/lib/isEmail';
 
 // TODO: Define a new schema named `userSchema` for the subdocument
 const userSchema = new Schema({
